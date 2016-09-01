@@ -21,6 +21,7 @@ It can be configured using the following properties
   #Time limit for the client for a particular service
   hc.client.timeout.secs=2
 ```
+To run the server, from the command line, simply go to its folder ```healthcheck-server``` and type ```mvn spring-boot:run``` and the service will be availble at (http://localhost:8080/index.html). In case of any build issues, go the root folder of the project and type ``` mvn clean install -DskipTests``` 
 
 ### healthcheck-client
 The client side library that any application will use that is monitored by the framework. For clients to use this, they have to do the following
