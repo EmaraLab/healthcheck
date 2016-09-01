@@ -1,11 +1,29 @@
-# healthcheck
+# healthcheck-fwk
 A simple healthcheck framework for checking the health of an application and its dependent services asynchronously through messaging. 
 It is divided into two modules
+  * healthcheck-server
+  * healthcheck-client
 
 ### healthcheck-server
 A web application for pinging the application(s) and receving HealthCheckEvents. 
+#### High Level Architecture
 
 ![High Level Architecture](https://github.com/EmaraLab/healthcheck/blob/master/health_check_main.png)
+
+###### Structure of the HealthCheckEvent
+
+```javascript
+{"id":"760a99d0-f154-4395-a623-305e8e3ca40c", //Unique ID
+"application":"VC", // Application Name
+"service":"vision_app_database", // A Service of the application
+"status":"OK", // status [OK|NOT_OK|TIMED_OUT]
+"error":null, // error in case status was NOT_OK
+"timestamp":1472705410450, // time at which the event was created
+"latency":1, // time taken to ping the service
+"healthCheckPing":null // the request against which this event is sent. It is Optional.
+}
+```
+
 
 It can be configured using the following properties
 ```
